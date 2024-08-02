@@ -25,10 +25,7 @@ function Login() {
 
   return (
     <div className='background-container '>
-     
-      
-      
-      
+   
       <div className='row'>
         <div className='col'></div>
         <div className='col'>
