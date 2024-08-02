@@ -20,6 +20,10 @@ public class Room extends Base{
 	@Column(name="room_type")
 	private RoomType roomType;
 	
+	@Enumerated(EnumType.STRING)
+	@Column(name="room_status")
+	private RoomStatus roomStatus;
+	
 	private boolean available;
 	
 	private boolean tv;
@@ -38,6 +42,10 @@ public class Room extends Base{
 	public enum RoomType{
 		SINGLE , DOUBLE ,SUITE 
 
+	}
+	
+	public enum RoomStatus{
+		AVAILABLE, OCCUPIED, RESERVED
 	}
 
 }
