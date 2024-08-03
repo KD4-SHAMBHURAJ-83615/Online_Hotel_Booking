@@ -17,12 +17,11 @@ function Home() {
                   <h5 className="card-title">Hotel Name</h5>
                   <p className="card-text">
                    Hotel address 
-                   <br />
-                   <h4>price</h4>
-                  </p><br /><br />
+                             
+                  </p><br /><br /> <br />
                   <p className="card-text mt-5" >
-                    <button className="btn btn-success me-5 ms-5">view details</button>
-                      
+                    <button className="btn btn-success ms-5">view </button>
+                    <button className="btn btn-warning ms-5">edit</button>
                     <button className="btn btn-danger ms-5">delete</button>
                   </p>
                 </div>
