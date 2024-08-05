@@ -12,8 +12,6 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class User extends Base {
-
-	
 	
 	@Column(name="first_name" , nullable = false,length = 50)
 	private String firstName;

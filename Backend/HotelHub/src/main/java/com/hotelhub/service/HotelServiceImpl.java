@@ -11,21 +11,25 @@ import com.hotelhub.entity.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class HotelServiceImpl {
 
     @Autowired
-    private HotelDao hotelRepository;
+    private HotelDao hotelDao; // Ensure this is the correct DAO
 
     @Autowired
-    private UserDao userRepository;
+    private UserDao userDao;   // Ensure this is the correct DAO
 
     @Autowired
-    private AddressDao addressRepository;
+    private AddressDao addressDao; // Ensure this is the correct DAO
 
+    @Transactional
     public HotelResponseDTO addHotel(HotelRequestDTO hotelRequestDTO) {
         Hotel hotel = new Hotel();
         hotel.setHotelName(hotelRequestDTO.getHotelName());
@@ -38,29 +42,31 @@ public class HotelServiceImpl {
         hotel.setWifi(hotelRequestDTO.isWifi());
         hotel.setPowerbackup(hotelRequestDTO.isPowerbackup());
 
-        Optional<User> userOptional = userRepository.findById(hotelRequestDTO.getUserId());
-        Optional<Address> addressOptional = addressRepository.findById(hotelRequestDTO.getAddressId());
+        Optional<User> userOptional = userDao.findById(hotelRequestDTO.getUserId());
+        Optional<Address> addressOptional = addressDao.findById(hotelRequestDTO.getAddressId());
 
         if (userOptional.isPresent() && addressOptional.isPresent()) {
             hotel.setUser(userOptional.get());
             hotel.setAddress(addressOptional.get());
-            hotel = hotelRepository.save(hotel);
+            hotel = hotelDao.save(hotel);
             return convertToResponseDTO(hotel);
         } else {
             throw new RuntimeException("User or Address not found");
         }
     }
 
+    @Transactional
     public void deleteHotel(Long id) {
-        if (hotelRepository.existsById(id)) {
-            hotelRepository.deleteById(id);
+        if (hotelDao.existsById(id)) {
+            hotelDao.deleteById(id);
         } else {
             throw new RuntimeException("Hotel not found");
         }
     }
 
+    @Transactional
     public HotelResponseDTO updateHotel(Long id, HotelRequestDTO hotelRequestDTO) {
-        Optional<Hotel> hotelOptional = hotelRepository.findById(id);
+        Optional<Hotel> hotelOptional = hotelDao.findById(id);
         if (hotelOptional.isPresent()) {
             Hotel hotel = hotelOptional.get();
             hotel.setHotelName(hotelRequestDTO.getHotelName());
@@ -73,13 +79,13 @@ public class HotelServiceImpl {
             hotel.setWifi(hotelRequestDTO.isWifi());
             hotel.setPowerbackup(hotelRequestDTO.isPowerbackup());
 
-            Optional<User> userOptional = userRepository.findById(hotelRequestDTO.getUserId());
-            Optional<Address> addressOptional = addressRepository.findById(hotelRequestDTO.getAddressId());
+            Optional<User> userOptional = userDao.findById(hotelRequestDTO.getUserId());
+            Optional<Address> addressOptional = addressDao.findById(hotelRequestDTO.getAddressId());
 
             if (userOptional.isPresent() && addressOptional.isPresent()) {
                 hotel.setUser(userOptional.get());
                 hotel.setAddress(addressOptional.get());
-                hotel = hotelRepository.save(hotel);
+                hotel = hotelDao.save(hotel);
                 return convertToResponseDTO(hotel);
             } else {
                 throw new RuntimeException("User or Address not found");
@@ -87,6 +93,12 @@ public class HotelServiceImpl {
         } else {
             throw new RuntimeException("Hotel not found");
         }
+    }
+    
+    @Transactional(readOnly = true)
+    public List<HotelResponseDTO> getAllHotels() {
+        List<Hotel> hotels = hotelDao.findAll();
+        return hotels.stream().map(this::convertToResponseDTO).collect(Collectors.toList());
     }
 
     private HotelResponseDTO convertToResponseDTO(Hotel hotel) {

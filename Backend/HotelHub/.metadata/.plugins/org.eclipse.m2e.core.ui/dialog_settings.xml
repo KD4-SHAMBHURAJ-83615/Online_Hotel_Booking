@@ -2,8 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
-			<item value="C:\Users\VaTaN\Desktop\FinalProject\Online_Hotel_Booking\Backend\HotelHub"/>
-			<item value="C:\Users\VaTaN\Desktop\FinalProject\Online_Hotel_Booking\Backend"/>
+			<item value="C:\Users\VaTaN\Desktop\BackendProject"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
