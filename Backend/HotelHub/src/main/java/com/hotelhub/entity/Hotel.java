@@ -10,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Hotel extends Base {
+public class Hotel extends Base{
 
     @Column(name = "hotel_name", nullable = false, length = 50)
     private String hotelName;

@@ -47,5 +47,15 @@ public class HotelController {
             return ResponseEntity.notFound().build();
         }
     }
+    
+    @GetMapping("/name/{hotelName}")
+    public List<HotelResponseDTO> getHotelsByName(@PathVariable String hotelName) {
+        return hotelService.getHotelsByName(hotelName);
+    }
+
+    @GetMapping("/address")
+    public List<HotelResponseDTO> getHotelsByAddress(@RequestParam String city, @RequestParam String state) {
+        return hotelService.getHotelsByAddress(city, state);
+    }
 }
 

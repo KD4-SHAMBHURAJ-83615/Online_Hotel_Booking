@@ -101,6 +101,19 @@ public class HotelServiceImpl {
         return hotels.stream().map(this::convertToResponseDTO).collect(Collectors.toList());
     }
 
+    
+    @Transactional(readOnly = true)
+    public List<HotelResponseDTO> getHotelsByName(String hotelName) {
+        List<Hotel> hotels = hotelDao.findByHotelName(hotelName);
+        return hotels.stream().map(this::convertToResponseDTO).collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public List<HotelResponseDTO> getHotelsByAddress(String city, String state) {
+        List<Hotel> hotels = hotelDao.findByAddress(city, state);
+        return hotels.stream().map(this::convertToResponseDTO).collect(Collectors.toList());
+    }
+
     private HotelResponseDTO convertToResponseDTO(Hotel hotel) {
         HotelResponseDTO hotelResponseDTO = new HotelResponseDTO();
         hotelResponseDTO.setId(hotel.getId());
