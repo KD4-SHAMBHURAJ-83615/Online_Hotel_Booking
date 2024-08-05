@@ -2,6 +2,7 @@ package com.hotelhub.dto;
 
 import lombok.*;
 
+import javax.persistence.Column;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
@@ -10,7 +11,7 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class UserRegisterDTO {
+public class UserRegisterDTO extends BaseDTO {
 
     @NotBlank
     private String firstName;
@@ -22,6 +23,7 @@ public class UserRegisterDTO {
     @NotBlank
     private String email;
 
+    
     @NotBlank
     private String password;
 
@@ -30,4 +32,6 @@ public class UserRegisterDTO {
 
     @NotBlank
     private String role; // CUSTOMER or OWNER
+
+    private AddressDTO address;
 }
