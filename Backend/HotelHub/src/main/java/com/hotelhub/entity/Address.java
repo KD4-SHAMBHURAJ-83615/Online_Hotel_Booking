@@ -26,4 +26,9 @@ public class Address extends Base{
 	@Column(name="country",length = 50 )
 	private String country;
 	
+	@OneToOne(mappedBy = "address")
+    private User user;
+	
+	@OneToOne(mappedBy = "address")
+    private Hotel hotel;
 }

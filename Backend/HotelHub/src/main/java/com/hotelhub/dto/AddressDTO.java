@@ -1,14 +1,21 @@
 package com.hotelhub.dto;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
-public class AddressDTO extends BaseDTO{
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+public class AddressDTO {
 
     private String addressLine;
+
     private String city;
-    private Integer pincode;
+
+    private String pincode;
+
     private String state;
+
     private String country;
 }
-
