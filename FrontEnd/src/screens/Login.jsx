@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import axios from 'axios'
 
 function Login() {
   const [email, setEmail] = useState('')
@@ -11,17 +12,20 @@ function Login() {
   // get navigation hook
   const navigate = useNavigate()
 
-  const onLogin = () => {
+  const onLogin = async () => {
     if (email.length == 0) {
       toast.error('Please enter email')
     } else if (password.length == 0) {
       toast.error('Please enter password')
     } else {
-      // call login API and check its success
-      // go to home screen
-      navigate('/home')
-    }
-  }
+      
+
+
+        
+  
+        
+     
+    }}
 
   return (
     <div className='background-container '>
