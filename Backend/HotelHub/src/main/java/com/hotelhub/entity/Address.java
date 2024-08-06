@@ -18,7 +18,7 @@ public class Address extends Base{
 	private String city;
 	
 	@Column(name="pincode",length = 10 )
-	private int pincode;
+	private String pincode;
 	
 	@Column(name="state" ,length = 50)
 	private String state;

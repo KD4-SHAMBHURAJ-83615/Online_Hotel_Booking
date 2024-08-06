@@ -25,13 +25,14 @@ public class UserRegisterDTO extends BaseDTO {
 
     
     @NotBlank
+    @Column(length = 255)
     private String password;
 
     @NotBlank
     private String phoneNo;
 
     @NotBlank
-    private String role; // CUSTOMER or OWNER
+    private String role="CUSTOMER"; // CUSTOMER or OWNER
 
     private AddressDTO address;
 }
