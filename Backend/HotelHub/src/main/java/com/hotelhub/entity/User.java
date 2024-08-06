@@ -19,14 +19,10 @@ public class User {
     private String email;
 
     
-
-        @Column(name = "password", length = 255, nullable = false)
-        private String password;
+    @Column(name = "password", length = 255, nullable = false)
+    private String password;
 
        
-    
-
-
     private String firstName;
 
     private String lastName;
@@ -40,7 +36,7 @@ public class User {
     @JoinColumn(name = "address_id")
     private Address address;
 
-    // Getters and setters
+   
 
     public Long getId() {
         return id;
@@ -105,7 +101,7 @@ public class User {
     }
 
 	public Object getRole() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
