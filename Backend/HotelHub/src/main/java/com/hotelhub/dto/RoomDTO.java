@@ -6,7 +6,7 @@ import com.hotelhub.entity.Room.RoomType;
 import com.hotelhub.entity.Room.RoomStatus;
 
 public class RoomDTO {
-    
+	private Long id;
     private String roomNumber;
     private RoomType roomType;
     private RoomStatus roomStatus;
@@ -70,7 +70,13 @@ public class RoomDTO {
 	public void setHotelId(Long hotelId) {
 		this.hotelId = hotelId;
 	}
-
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
     // Getters and setters
     
 }

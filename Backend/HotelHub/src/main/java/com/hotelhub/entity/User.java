@@ -34,6 +34,11 @@ public class User extends Base {
 	@Column(name="role")
 	private Role role;
 	
+	@OneToOne
+	@JoinColumn(name="address_id")
+	private Address address;
+
+	
 	public enum Role{
 		CUSTOMER, OWNER
 	}
@@ -42,7 +47,10 @@ public class User extends Base {
 		
 	}
 
-	public User(String firstName, String lastname, String email, String password, String phoneNo, Role role) {
+	
+
+	public User(String firstName, String lastname, String email, String password, String phoneNo, Role role,
+			Address address) {
 		super();
 		this.firstName = firstName;
 		this.lastname = lastname;
@@ -50,7 +58,10 @@ public class User extends Base {
 		this.password = password;
 		this.phoneNo = phoneNo;
 		this.role = role;
+		this.address = address;
 	}
+
+
 
 	public String getFirstName() {
 		return firstName;
@@ -100,11 +111,21 @@ public class User extends Base {
 		this.role = role;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	@Override
 	public String toString() {
 		return "User [firstName=" + firstName + ", lastname=" + lastname + ", email=" + email + ", password=" + password
-				+ ", phoneNo=" + phoneNo + ", role=" + role + "]";
+				+ ", phoneNo=" + phoneNo + ", role=" + role + ", address=" + address + "]";
 	}
+
+	
 	
 	
 	
