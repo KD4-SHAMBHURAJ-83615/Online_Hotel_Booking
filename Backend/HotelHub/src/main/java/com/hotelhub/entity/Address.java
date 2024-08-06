@@ -2,8 +2,6 @@ package com.hotelhub.entity;
 import javax.persistence.*;
 import lombok.*;
 
-
-
 @Entity
 @Table(name = "address")
 @Getter
@@ -25,7 +23,6 @@ public class Address extends Base{
 	@Column(name="state" ,length = 50)
 	private String state;
 	
-	
 	@Column(name="country",length = 50 )
 	private String country;
 	
@@ -34,6 +31,4 @@ public class Address extends Base{
 	
 	@OneToOne(mappedBy = "address")
     private Hotel hotel;
-	
-
 }

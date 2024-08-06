@@ -19,7 +19,11 @@ public class Base {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+<<<<<<< HEAD
+	private Long id;
+=======
 	private long id;
+>>>>>>> main
 	
 	@CreationTimestamp
 	@Column(name="created_on" )
