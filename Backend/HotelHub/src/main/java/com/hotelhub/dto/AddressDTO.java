@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class AddressDTO {
+public class AddressDTO extends BaseDTO{
 
     private String addressLine;
 
@@ -18,4 +18,6 @@ public class AddressDTO {
     private String state;
 
     private String country;
+
+	
 }

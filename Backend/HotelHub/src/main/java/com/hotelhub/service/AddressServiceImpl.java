@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.hotelhub.custom_exception.ResourceNotFoundException;
 import com.hotelhub.dao.AddressDao;
@@ -13,6 +14,7 @@ import com.hotelhub.dto.AddressDTO;
 import com.hotelhub.entity.Address;
 
 @Service
+@Transactional
 public class AddressServiceImpl {
 
     @Autowired
