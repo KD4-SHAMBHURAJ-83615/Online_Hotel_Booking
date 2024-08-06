@@ -8,10 +8,9 @@ function Room() {
         
         
        <div className="row">
-          <div className='col-1'></div>
-
+           
           {/* for room image and details start */}
-                <div className='col slide-up' style={{marginTop:100}}>
+                <div className='col slide-up ms-3' style={{marginTop:100}}>
                
                 <div className="card mb-3 "style={{width:500}}>
                     <img src={roomimage} class="card-img-top" alt="..."/>
@@ -29,11 +28,7 @@ function Room() {
 
                 </div> 
             {/* for room image and details  end*/}
-          <div className='col-1'>
-
-           
-           
-           </div>
+          
        
        </div>
   

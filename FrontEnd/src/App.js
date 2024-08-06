@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="container" >
      <Routes>
-      <Route path='' element={<RoomC/>} />
+      <Route path='' element={<Register/>} />
       <Route path='Login' element={<Login/>} />
       <Route path='Register' element={<Register/>} />
       <Route path='Address' element={<Address/>} />
