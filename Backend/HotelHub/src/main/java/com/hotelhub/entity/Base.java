@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.*;
 
@@ -17,11 +19,17 @@ public class Base {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+<<<<<<< HEAD
+	private Long id;
+=======
 	private long id;
+>>>>>>> main
 	
+	@CreationTimestamp
 	@Column(name="created_on" )
 	private LocalDate createdOn;
 	
+	@UpdateTimestamp
 	@Column(name="updated_on" )
 	private LocalDate updatedOn;
 

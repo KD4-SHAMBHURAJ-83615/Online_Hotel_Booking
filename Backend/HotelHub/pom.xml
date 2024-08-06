@@ -74,6 +74,8 @@
 			<artifactId>commons-lang3</artifactId>
 			<!-- <version>3.14.0</version> -->
 		</dependency>
+<<<<<<< HEAD
+=======
 
          <dependency>
     <groupId>org.springframework.boot</groupId>
@@ -85,6 +87,7 @@
 </dependency>
          
 		
+>>>>>>> main
 		
 		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api -->
 		<dependency>
