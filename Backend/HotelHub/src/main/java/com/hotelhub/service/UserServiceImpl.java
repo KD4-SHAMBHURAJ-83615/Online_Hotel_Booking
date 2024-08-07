@@ -1,6 +1,6 @@
 package com.hotelhub.service;
 
-import java.util.Set;
+
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,13 +56,14 @@ public class UserServiceImpl implements UserService {
         userRespDTO.setToken(jwt);
 
         // Set roles explicitly if needed
-        userRespDTO.setRole(user.getRoles().stream().findFirst().orElse(null));
+       // userRespDTO.setRole(user.getRoles().stream().findFirst().orElse(null));
+        userRespDTO.setRole(user.getRole().toString());
 
         return userRespDTO;
     }
 
     @Override
-    public void registerUser(UserRegisterDTO dto) {
+    public Long registerUser(UserRegisterDTO dto) {
         if (userDao.findByEmail(dto.getEmail()).isPresent()) {
             throw new UserAlreadyExistsException("User already exists with this email");
         }
@@ -71,13 +72,20 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
 
         // Set roles based on DTO
-        user.setRoles(Set.of(dto.getRole())); // Ensure this aligns with how roles are stored
+       // user.setRoles(Set.of(dto.getRole())); // Ensure this aligns with how roles are stored
+        user.setRole(dto.getRole());
 
         user.setFirstName(dto.getFirstName());
         user.setLastName(dto.getLastName());
-
+        User u = userDao.save(user);
         // Address logic removed as requested
-        userDao.save(user);
+       return u.getId();
+         
     }
+
+	
+    
+    
+    
 }
 
