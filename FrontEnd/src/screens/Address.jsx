@@ -304,7 +304,7 @@
 
 // export default Address;
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
@@ -315,23 +315,13 @@ function Address() {
   const [pincode, setPincode] = useState('');
   const [state, setState] = useState('');
   const [country, setCountry] = useState('');
-  const [storedObject, setStoredObject] = useState(null);
+ 
 
-  useEffect(() => {
-    const data = localStorage.getItem('user');
-    if (data) {
-      setStoredObject(JSON.parse(data));
-    }
-  }, []);
+  
 
   const navigate = useNavigate();
 
   const onAddAddress = async () => {
-    if (!storedObject) {
-      toast.error('User information is missing');
-      return;
-    }
-
     if (addressLine.length === 0) {
       toast.error('Please enter Address');
     } else if (pincode.length === 0) {
@@ -345,11 +335,6 @@ function Address() {
     } else {
       try {
         const response = await axios.post('http://localhost:8080/users/register', {
-          firstName: storedObject.firstName,
-          lastName: storedObject.lastName,
-          email: storedObject.email,
-          password: storedObject.password,
-          phoneNo: storedObject.phoneNo,
           addressLine,
           city,
           pincode,
@@ -379,14 +364,11 @@ function Address() {
           <div className='form slide-up box'>
             <div className='mb-3'>
               <br />
-              {storedObject && (
+              
                 <div>
-                  <h6>First Name: {storedObject.firstName}</h6>
-                  <h6>Last Name: {storedObject.lastName}</h6>
-                  <h6>Email: {storedObject.email}</h6>
-                  <h6>Phone No: {storedObject.phoneNo}</h6>
+                  <h6>Address Line</h6>
                 </div>
-              )}
+              
               <textarea
                 onChange={(e) => setAddressLine(e.target.value)}
                 type='text'

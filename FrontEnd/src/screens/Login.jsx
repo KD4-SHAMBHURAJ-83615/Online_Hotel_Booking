@@ -18,7 +18,29 @@ function Login() {
     } else if (password.length == 0) {
       toast.error('Please enter password')
     } else {
-      
+      try {
+        debugger
+        const response = await axios.post('http://localhost:8080/users/login', {
+         
+          email,
+          password,
+          
+          
+        });
+        
+           console.log(response.data)
+        if (response.status === 200) {
+          
+
+          toast.success('Successfully registered a new user');
+          navigate('/homeC');
+        } else {
+          toast.error('User navi registration failed');
+        }
+      } catch (error) {
+        console.error('There was an error signing up!', error);
+        toast.error('User registration failed');
+      }
 
 
         
