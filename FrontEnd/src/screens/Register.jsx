@@ -58,6 +58,7 @@ function Register() {
       }
     }
   };
+  
 
   return (
     <div className='background-container'>

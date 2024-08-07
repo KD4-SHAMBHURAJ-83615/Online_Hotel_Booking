@@ -34,6 +34,11 @@ public class AuthRequest {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	@Override
+	public String toString() {
+		return "AuthRequest [email=" + email + ", password=" + password + "]";
+	}
     
     
 }

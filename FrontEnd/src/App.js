@@ -15,8 +15,8 @@ function App() {
   return (
     <div className="container" >
      <Routes>
-      <Route path='' element={<Register/>} />
-      <Route path='Login' element={<Login/>} />
+    {/*<Route path='' element={<Register/>} />*/}
+      <Route path='' element={<Login/>} />
       <Route path='Register' element={<Register/>} />
       <Route path='Address' element={<Address/>} />
       <Route path='Properties' element={<Properties/>} />

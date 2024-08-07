@@ -42,6 +42,7 @@ public class User {
     @OneToOne(mappedBy = "user")
     private Address address;
 
+   
     
 
 //    public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -52,10 +53,7 @@ public class User {
     
      
 
-    public Object getRole() {
-        return null;
-    }
-
+   
 
 
 	public User() {
@@ -160,6 +158,12 @@ public class User {
 		return "User [id=" + id + ", email=" + email + ", password=" + password + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", role=" + role + ", address=" + address + "]";
 	}
+
+
+	 public Role GetRole()
+	    {
+	    	return role;
+	    }
     
     
 }
