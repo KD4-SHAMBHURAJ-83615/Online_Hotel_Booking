@@ -7,15 +7,17 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class AddressDTO {
+public class AddressDTO extends BaseDTO{
 
     private String addressLine;
 
     private String city;
 
-    private String pincode;
+    private int pincode;
 
     private String state;
 
     private String country;
+   
+    private Long id;
 }

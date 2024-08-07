@@ -7,5 +7,7 @@ import com.hotelhub.entity.Address;
 public interface AddressDao extends JpaRepository <Address, Long>{
 	
 	
+	
+	
 
 }

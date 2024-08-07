@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
+import com.hotelhub.entity.Role;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -31,6 +33,6 @@ public class UserRegisterDTO extends BaseDTO {
     private String phoneNo;
 
     @NotBlank
-    private String role; // CUSTOMER or OWNER
+    private Role role; // CUSTOMER or OWNER
 
 }
