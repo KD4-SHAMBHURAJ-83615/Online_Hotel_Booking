@@ -9,6 +9,7 @@ import Properties from './screens/Properties';
 import Room from './screens/Room';
 import HomeC from './screens/HomeClient';
 import RoomC from './screens/RoomClient';
+import HomeO from './screens/Home';
 
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
      <Routes>
     {/*<Route path='' element={<Register/>} />*/}
       <Route path='' element={<Login/>} />
+      <Route path='Login' element={<Login/>} />
+      <Route path='HomeO' element={<HomeO/>} />
       <Route path='Register' element={<Register/>} />
       <Route path='Address' element={<Address/>} />
       <Route path='Properties' element={<Properties/>} />

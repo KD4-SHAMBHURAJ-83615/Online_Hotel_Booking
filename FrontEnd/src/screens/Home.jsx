@@ -2,7 +2,7 @@
 
 function Home() {
   return (
-    <div>
+    <div className="background-container">
      <div></div>
      
     </div>

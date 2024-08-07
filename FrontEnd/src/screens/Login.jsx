@@ -19,7 +19,7 @@ function Login() {
       toast.error('Please enter password')
     } else {
       try {
-        debugger
+        
         const response = await axios.post('http://localhost:8080/users/login', {
          
           email,
@@ -28,12 +28,16 @@ function Login() {
           
         });
         
-           console.log(response.data)
+           
         if (response.status === 200) {
           
 
           toast.success('Successfully registered a new user');
+          if (response.data.role=='CUSTOMER')
           navigate('/homeC');
+           if (response.data.role=='OWNER')
+           navigate('/homeO');
+          
         } else {
           toast.error('User navi registration failed');
         }
