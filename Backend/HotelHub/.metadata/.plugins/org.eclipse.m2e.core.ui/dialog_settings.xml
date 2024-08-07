@@ -2,8 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
-			<item value="C:\Users\shiva\OneDrive\Desktop\finalproject\Online_Hotel_Booking\Backend\HotelHub\HotelHub"/>
-			<item value="C:\Users\shiva\OneDrive\Desktop\finalproject\Online_Hotel_Booking\Backend\HotelHub"/>
+			<item value="C:\Users\shiva\OneDrive\Desktop\HotelHub\HotelHub"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -13,5 +12,9 @@
 			<item value="[groupId].[artifactId]-[version]"/>
 			<item value="[name]"/>
 		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
 	</section>
 </section>
