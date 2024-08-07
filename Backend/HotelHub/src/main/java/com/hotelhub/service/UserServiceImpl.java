@@ -18,6 +18,7 @@ import com.hotelhub.dao.UserDao;
 import com.hotelhub.dto.AuthRequest;
 import com.hotelhub.dto.UserRegisterDTO;
 import com.hotelhub.dto.UserRespDTO;
+import com.hotelhub.entity.Role;
 import com.hotelhub.entity.User;
 import com.hotelhub.security.JwtUtils;
 
@@ -51,13 +52,19 @@ public class UserServiceImpl implements UserService {
 
         User user = userDao.findByEmail(dto.getEmail())
                 .orElseThrow(() -> new AuthenticationException("Invalid Email or Password !!!!!!"));
+        System.out.println(user.toString());
 
+        
         UserRespDTO userRespDTO = mapper.map(user, UserRespDTO.class);
         userRespDTO.setToken(jwt);
+        
 
         // Set roles explicitly if needed
        // userRespDTO.setRole(user.getRoles().stream().findFirst().orElse(null));
-        userRespDTO.setRole(user.getRole().toString());
+        System.out.println("role"+user.GetRole());
+       // Role role=
+        userRespDTO.setRole(user.GetRole().toString());
+        
 
         return userRespDTO;
     }

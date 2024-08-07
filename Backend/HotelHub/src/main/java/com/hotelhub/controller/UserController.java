@@ -33,6 +33,7 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<UserRespDTO> authenticateUser(@RequestBody AuthRequest authRequest) {
         // Authenticate the user using AuthenticationManager
+    	System.out.println(authRequest.toString());
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(authRequest.getEmail(), authRequest.getPassword())
         );
