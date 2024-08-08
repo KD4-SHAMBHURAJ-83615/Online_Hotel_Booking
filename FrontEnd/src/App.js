@@ -10,6 +10,8 @@ import Room from './screens/Room';
 import HomeC from './screens/HomeClient';
 import RoomC from './screens/RoomClient';
 import HomeO from './screens/Home';
+import AddHotel from './screens/AddHotel';
+import AddRoom from './screens/AddRoom';
 
 
 function App() {
@@ -19,9 +21,11 @@ function App() {
     {/*<Route path='' element={<Register/>} />*/}
       <Route path='' element={<Login/>} />
       <Route path='Login' element={<Login/>} />
+      <Route path='/AddRoom/:id' element={<AddRoom/>} />
+      <Route path='AddHotel' element={<AddHotel/>} />
       <Route path='HomeO' element={<HomeO/>} />
       <Route path='Register' element={<Register/>} />
-      <Route path='Address' element={<Address/>} />
+      <Route path='/Address/:id' element={<Address/>} />
       <Route path='Properties' element={<Properties/>} />
       <Route path='Room' element={<Room/>} />
       <Route path='HomeC' element={<HomeC/>} />

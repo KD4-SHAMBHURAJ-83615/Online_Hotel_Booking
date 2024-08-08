@@ -1,15 +1,30 @@
 import Dashboard from '../Dashboard/Dashboard'
 
-import imagehotel from '../Images/hotel1.jpg'
 
-function Home() {
+import imagehotel from '../Images/hotel1.jpg'
+import {  useNavigate } from 'react-router-dom'
+
+function Properties() {
+  const navigate = useNavigate()
+
+const onAddHotel =  () => {
+  navigate('/AddHotel');
+}
+
   return (
     
     <div className="background-container">
         <Dashboard />
+        <div className="row mt-4">
+          <div className='col-10'></div>
+          <div className='col-2'> 
+        <button onClick={onAddHotel} className='btn btn-success mt-2'>
+                add hotel
+              </button> </div>
+        </div>
      <div className="row">
         <div className='col-1'></div>
-              <div className='col ' style={{marginTop:100}}>
+              <div className='col ' >
                 
               <div className="card text-bg-dark slide-up " style={{width:400}}>
                 <img src={imagehotel} className="card-img" alt="hotel image"   />
@@ -28,7 +43,7 @@ function Home() {
               </div> <br />
  
               </div> 
-        <div className='col-1'>  </div>
+       
      
      </div>
 
@@ -37,4 +52,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Properties
