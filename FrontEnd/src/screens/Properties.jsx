@@ -1,8 +1,19 @@
 import Dashboard from '../Dashboard/Dashboard'
+
 import { useState, useEffect } from 'react'
 import { getProperties } from '../services/property'
 import { useNavigate } from 'react-router-dom'
+
 import imagehotel from '../Images/hotel1.jpg'
+import {  useNavigate } from 'react-router-dom'
+
+function Properties() {
+  const navigate = useNavigate()
+
+const onAddHotel =  () => {
+  navigate('/AddHotel');
+}
+
 
 function Properties() {
   const [properties, setProperties] = useState([])
@@ -27,8 +38,10 @@ function Properties() {
     navigate('/AddHotel');
   }
 
+
   return (
     <div className="background-container">
+
       <Dashboard />
       <div className="row mt-4">
         <div className='col-10'></div>
@@ -61,6 +74,7 @@ function Properties() {
         </div>
         ))}
       </div>
+
     </div>
   )
 }

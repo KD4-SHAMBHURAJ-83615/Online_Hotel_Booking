@@ -15,7 +15,9 @@ function AddProperty() {
   const [swimmingPool, setSwimmingPool] = useState(false)
   const [restaurant, setRestaurant] = useState(false)
   const [gym, setAC] = useState(false)
+
   const [userId] = useState(`${sessionStorage.getItem('userId')}`)
+
   const [wifi, setWifi] = useState(false)
   const [powerbackup, setPowerbackup] = useState(false)
   const [parking, setParking] = useState(false)
@@ -50,10 +52,12 @@ function AddProperty() {
      } )
     
      
+
       if (result['status'] == 201) {
         toast.success('Successfully added a property')
         
         sessionStorage.setItem('hotelId',result.data.id)
+
         navigate(`/address/${result.data.id}`)
       } else {
         toast.error(result['error'])

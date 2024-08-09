@@ -41,8 +41,10 @@ function Address() {
         
         if (response.status === 201) {
           toast.success('Address saved successfully');
+
          // navigate(`/addroom/${id}`); // Redirect to home page or any other page
          navigate(`/room`);
+
         } else {
           toast.error('Failed to save address');
         }

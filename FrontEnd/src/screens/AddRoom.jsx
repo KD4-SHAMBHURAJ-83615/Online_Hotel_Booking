@@ -47,7 +47,9 @@ function AddRoom() {
      
       if (result['status'] == 201) {
         toast.success('Successfully added a property')
+
         navigate('/room')
+
       } else {
         toast.error(result['error'])
       }
