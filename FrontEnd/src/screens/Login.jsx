@@ -31,12 +31,15 @@ function Login() {
            
         if (response.status === 200) {
           
-
+          sessionStorage.setItem('userId',response.data.id)
+          sessionStorage.setItem('token',response.data.token)
+          sessionStorage.setItem('email',response.data.email)
+          sessionStorage.setItem('role',response.data.role)
           toast.success('Successfully registered a new user');
           if (response.data.role=='CUSTOMER')
           navigate('/homeC');
            if (response.data.role=='OWNER')
-           navigate('/homeO');
+           navigate('/properties');
           
         } else {
           toast.error('User navi registration failed');
