@@ -16,7 +16,7 @@ import AddRoom from './screens/AddRoom';
 
 function App() {
   return (
-    <div className="container" >
+    <div className="container-flid" >
      <Routes>
     {/*<Route path='' element={<Register/>} />*/}
       <Route path='' element={<Login/>} />

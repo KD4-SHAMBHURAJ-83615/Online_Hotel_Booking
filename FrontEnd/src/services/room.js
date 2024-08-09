@@ -1,17 +1,16 @@
-
 import axios from 'axios'
 // import { config } from './config'
 
-export async function getProperties() {
+export async function getRooms() {
 
   try {
     
     // const token = sessionStorage['token']
-    const response = await axios.get(`http://localhost:8080/hotels/user/${sessionStorage.getItem('userId')}`, {
+    const response = await axios.get(`http://localhost:8080/rooms/hotel/${sessionStorage.getItem('hotelId')}`, {
     //   headers: { token },
 
     })
-    console.log("response from backend   "+response.data)
+   
     return response.data
   } catch (ex) {
     console.log(`exception: `, ex)
@@ -77,5 +76,3 @@ export async function addProperty(
 
   return null
 }
-
-
